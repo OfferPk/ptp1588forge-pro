@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500">
+  <defs>
+    <linearGradient id="bgArchPtp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#01030a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="500" fill="url(#bgArchPtp)"/>
+
+  <text x="500" y="45" fill="#ffffff" font-family="-apple-system, sans-serif" font-weight="700" font-size="20" text-anchor="middle">
+    IEEE 1588v2 PTP Architecture: Rogue BMCA Flapping vs Zero-Trust Telecom Sync
+  </text>
+
+  <!-- Left: Vulnerable Architecture -->
+  <rect x="40" y="80" width="430" height="380" rx="10" fill="#14060c" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="55" y="95" width="400" height="34" rx="6" fill="#ef4444" fill-opacity="0.2"/>
+  <text x="255" y="118" fill="#f87171" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">
+    Hazardous: Unprotected Rogue Clock &amp; Jitter
+  </text>
+
+  <rect x="55" y="145" width="400" height="60" rx="6" fill="#02040a" stroke="#242f5d"/>
+  <text x="70" y="170" fill="#fca5a5" font-family="monospace" font-size="11">Rogue Priority 1 (10) &bull; Software Host Socket Timestamps</text>
+  <text x="70" y="190" fill="#ef4444" font-family="-apple-system, sans-serif" font-size="11">G.8275.1 on L3 IP &bull; 0ns Fiber Asymmetry &bull; Free-Running TCXO</text>
+
+  <rect x="55" y="220" width="400" height="220" rx="6" fill="#1c0710" stroke="#ef4444" stroke-opacity="0.4"/>
+  <text x="70" y="245" fill="#f87171" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">CRITICAL PTP &amp; 5G FRONTHAUL RISKS:</text>
+  <text x="70" y="275" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Rogue ordinary clock usurps GNSS Grandmaster, crashing base stations</text>
+  <text x="70" y="305" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Software timestamping injects 10–50us latency noise into servo loop</text>
+  <text x="70" y="335" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Uncompensated fiber dispersion violates 3GPP Time Alignment Error (&lt;65ns)</text>
+  <text x="70" y="365" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; TCXO oscillator rapidly drifts past 1.5us holdover budget on GNSS drop</text>
+  <text x="70" y="415" fill="#ef4444" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">CLOCK FLAPPING &bull; 5G CARRIER AGGREGATION COLLAPSE</text>
+
+  <!-- Right: Hardened Zero-Trust Architecture -->
+  <rect x="530" y="80" width="430" height="380" rx="10" fill="#051421" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="545" y="95" width="400" height="34" rx="6" fill="#38bdf8" fill-opacity="0.2"/>
+  <text x="745" y="118" fill="#38bdf8" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">
+    Hardened: PTP1588Forge Zero-Trust
+  </text>
+
+  <rect x="545" y="145" width="400" height="60" rx="6" fill="#02040a" stroke="#242f5d"/>
+  <text x="560" y="170" fill="#38bdf8" font-family="monospace" font-size="11">Hardware PHY Timestamping &bull; Master Guard Filter</text>
+  <text x="560" y="190" fill="#34d399" font-family="monospace" font-size="11">G.8275.1 L2 Multicast (Domain 24) &bull; Asymmetry Calibrated</text>
+
+  <rect x="545" y="220" width="400" height="220" rx="6" fill="#071b2d" stroke="#38bdf8" stroke-opacity="0.4"/>
+  <text x="560" y="245" fill="#38bdf8" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">ENTERPRISE TELECOM GUARANTEES:</text>
+  <text x="560" y="275" fill="#bae6fd" font-family="-apple-system, sans-serif" font-size="11">&bull; Hardware PHY timestamping guarantees sub-nanosecond phase resolution</text>
+  <text x="560" y="305" fill="#bae6fd" font-family="-apple-system, sans-serif" font-size="11">&bull; Master Guard filter drops unauthorized Announce packets unconditionally</text>
+  <text x="560" y="335" fill="#bae6fd" font-family="-apple-system, sans-serif" font-size="11">&bull; Static fiber asymmetry offset (45ns) eliminates optical delay bias</text>
+  <text x="560" y="365" fill="#bae6fd" font-family="-apple-system, sans-serif" font-size="11">&bull; OCXO / Rubidium oscillator provides &lt;1.5us holdover budget for 8–24 hours</text>
+  <text x="560" y="415" fill="#34d399" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">IEEE 1588-2008 &bull; ITU-T G.8275.1 &bull; CISCO, JUNIPER, ARISTA &amp; PTP4L</text>
+</svg>
